@@ -5,6 +5,7 @@ import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlin
 import { Button, TextField, Container, Badge } from "@material-ui/core";
 import DensityMediumRoundedIcon from "@mui/icons-material/DensityMediumRounded";
 import MyDrawer from "./drawer";
+import Link from "@mui/material/Link";
 
 const Header: React.FC = () => {
   const [open, setOpen] = React.useState(false);
@@ -36,9 +37,15 @@ const Header: React.FC = () => {
           <Button className="homeBtn" href="/">
             React Shop
           </Button>
-          <Button className="passionCategoryBtn">패션</Button>
-          <Button className="AccesaryCategoryBtn">액세서리</Button>
-          <Button className="digitalCategoryBtn">디지털</Button>
+          <Link href="../Fashion" className="passionCategoryBtn">
+            <Button className="passionCategoryBtn">패션</Button>
+          </Link>
+          <Link href="../Accesory" className="AccesaryCategoryBtn">
+            <Button className="AccesaryCategoryBtn">액세서리</Button>
+          </Link>
+          <Link href="../Digital" className="DigitalCategoryBtn">
+            <Button className="digitalCategoryBtn">디지털</Button>
+          </Link>
         </Toolbar>
         <Toolbar>
           <MaterialUISwitch />
