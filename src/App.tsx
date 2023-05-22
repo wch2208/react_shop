@@ -9,10 +9,18 @@ import FashionPage from "./components/Category/Fashion";
 import Main from "./components/home/Main";
 import AccesoryPage from "./components/Category/Accesory";
 import DigitalPage from "./components/Category/Digital";
+import ProductDetail from "./components/PruductDetail/ProductDetail";
 
 function App() {
   return (
-    <Box style={{ maxWidth: "100vw" }}>
+    <Box
+      sx={{
+        maxWidth: "100vw",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <BrowserRouter>
         <Header />
         <Routes>
@@ -20,6 +28,7 @@ function App() {
           <Route path="/Fashion" element={<FashionPage />} />
           <Route path="/Accesory" element={<AccesoryPage />} />
           <Route path="/Digital" element={<DigitalPage />} />
+          <Route path="/Product/:id" element={<ProductDetail />} />
         </Routes>
         <Footer />
       </BrowserRouter>

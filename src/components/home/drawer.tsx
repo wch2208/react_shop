@@ -28,8 +28,7 @@ const MyDrawer: React.FC<MyDrawerProps> = ({ open, onClose }) => {
     >
       <div style={{ width: "320px", marginTop: "40px" }}></div>
       <Button
-        href="/"
-        target="_blank"
+        href="/Fashion"
         // align="left"
         // style={{ margin: "20px 0 0 20px", width: "320px" }}
         id="drawer 1"
@@ -37,9 +36,13 @@ const MyDrawer: React.FC<MyDrawerProps> = ({ open, onClose }) => {
         패션
       </Button>
       <br />
-      <Button id="drawer 2">액세서리</Button>
+      <Button href="/Accesory" id="drawer 2">
+        액세서리
+      </Button>
       <br />
-      <Button id="drawer 3">디지털</Button>
+      <Button href="/Digital" id="drawer 3">
+        디지털
+      </Button>
     </Drawer>
   ) : null;
 };

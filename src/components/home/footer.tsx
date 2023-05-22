@@ -14,7 +14,12 @@ const Footer: React.FC = () => {
       direction="column"
       alignItems="center"
       justifyContent="space-between"
-      sx={{ backgroundColor: "#f2f2f2", mt: 5, p: 5, height: "300px" }}
+      sx={{
+        backgroundColor: "#f2f2f2",
+        mt: 5,
+        p: 5,
+        height: "300px",
+      }}
     >
       <Grid item>
         <Typography>React Shop</Typography>

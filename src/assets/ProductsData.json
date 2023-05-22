@@ -1,0 +1,39 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "청바지",
+      "price": "300,000",
+      "imgUrl": "https://picsum.photos/200/300",
+      "category": "fashion"
+    },
+    {
+      "id": 2,
+      "title": "반지",
+      "price": "200,000",
+      "imgUrl": "https://picsum.photos/200/300",
+      "category": "Accesory"
+    },
+    {
+      "id": 3,
+      "title": "usb",
+      "price": "100,000",
+      "imgUrl": "https://picsum.photos/200/300",
+      "category": "Digital"
+    },
+    {
+      "id": 4,
+      "title": "후드티",
+      "price": "50,000",
+      "imgUrl": "https://picsum.photos/200/300",
+      "category": "fashion"
+    },
+    {
+      "id": 5,
+      "title": "신발",
+      "price": "50,000",
+      "imgUrl": "https://picsum.photos/200/300",
+      "category": "fashion"
+    }
+  ]
+}
