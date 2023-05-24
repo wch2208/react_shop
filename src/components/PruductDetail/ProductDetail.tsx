@@ -5,6 +5,8 @@ import cards from "../../assets/ProductsData.json";
 import NavigateNextRoundedIcon from "@mui/icons-material/NavigateNextRounded";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import Rating from "@mui/material/Rating";
+import Link from "@mui/material/Link";
 
 export default function ProductDetail() {
   console.log(cards.products);
@@ -26,7 +28,9 @@ export default function ProductDetail() {
           <Grid
             item
             sx={{
-              m: "auto",
+              mt: 4,
+              ml: "auto",
+              mr: "auto",
             }}
           >
             <img src={cards.products[0].imgUrl} alt={cards.products[0].title} />
@@ -49,17 +53,31 @@ export default function ProductDetail() {
               repellendus repudiandae. Impedit, eveniet officia! Veritatis,
               natus? Unde, quo sequi.
             </Grid>
-            <Grid item sx={{ mt: 2 }}>
-              별점
+            <Grid
+              container
+              sx={{
+                mt: 2,
+              }}
+            >
+              <Rating
+                defaultValue={cards.products[0].rating}
+                precision={0.5}
+                readOnly
+              />
+              <Grid item xs={6} sx={{ ml: 2 }}>
+                {cards.products[0].rating} / {cards.products[0].reviewer} 참여
+              </Grid>
             </Grid>
             <Grid item sx={{ mt: 2 }}>
               {cards.products[0].price}
             </Grid>
             <Grid item sx={{ mt: 2 }}>
               <Button variant="contained">장바구니 담기</Button>
-              <Button variant="outlined" style={{ marginLeft: "10px" }}>
-                장바구니 이동
-              </Button>
+              <Link href="/cart">
+                <Button variant="outlined" style={{ marginLeft: "10px" }}>
+                  장바구니 이동
+                </Button>
+              </Link>
             </Grid>
           </Grid>
         </Grid>

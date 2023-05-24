@@ -9,9 +9,11 @@ import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Hidden from "@mui/material/Hidden";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+import { useRecoilState } from "recoil";
+import { DrawerOpen } from "../../recoil/DrawerOpen";
 
 const Header: React.FC = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useRecoilState(DrawerOpen);
   return (
     <Grid
       container
@@ -26,7 +28,7 @@ const Header: React.FC = () => {
     >
       <MyDrawer
         open={open}
-        onClose={function (): void {
+        handleClick={function (): void {
           throw new Error("Function not implemented.");
         }}
       />

@@ -6,9 +6,9 @@ export default function Main() {
   return (
     <>
       <CarouselSection />
-      <CardList />
-      <CardList />
-      <CardList />
+      <CardList category={"jewelery"} />
+      <CardList category={"electronics"} />
+      <CardList category={"clothing"} />
     </>
   );
 }

@@ -1,50 +1,55 @@
-import { Button, Drawer, Typography } from "@material-ui/core";
+import { Drawer, Typography } from "@material-ui/core";
+import Link from "@mui/material/Link";
+import { useRecoilState } from "recoil";
+import { DrawerOpen } from "../../recoil/DrawerOpen";
 
 interface MyDrawerProps {
   open: boolean;
-  onClose: () => void;
+  handleClick: () => void;
 }
 
-const MyDrawer: React.FC<MyDrawerProps> = ({ open, onClose }) => {
-  console.log(open);
-
-  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault();
-    console.log("id:", e.currentTarget.id);
-    if (e.currentTarget.id.startsWith("drawer")) {
-      console.log("카테고리 이동");
-    } else {
-      console.log("닫기");
-      // onClose();
-    }
+const MyDrawer: React.FC<MyDrawerProps> = () => {
+  const [open, setOpen] = useRecoilState(DrawerOpen);
+  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    console.log(event.currentTarget.id);
+    event.defaultPrevented;
+    setOpen(false);
   };
-
   return open ? (
     <Drawer
-      anchor="left"
       open={open}
-      style={{ backgroundColor: "#fff" }}
-      // onClick={handleClick}
+      style={{
+        backgroundColor: "#fff",
+        width: 0,
+        transition: "width 10s",
+      }}
+      onClick={handleClick}
+      id="close"
     >
-      <div style={{ width: "320px", marginTop: "40px" }}></div>
-      <Button
-        href="/Fashion"
-        // align="left"
-        // style={{ margin: "20px 0 0 20px", width: "320px" }}
-        id="drawer 1"
-      >
-        패션
-      </Button>
-      <br />
-      <Button href="/Accesory" id="drawer 2">
-        액세서리
-      </Button>
-      <br />
-      <Button href="/Digital" id="drawer 3">
-        디지털
-      </Button>
+      <Link href="/Fashion" underline="none" sx={{ color: "black" }}>
+        <Typography variant="h6" style={{ padding: "20px", width: "100%" }}>
+          패션
+        </Typography>
+      </Link>
+      <Link href="/Accesory" underline="none" sx={{ color: "black" }}>
+        <Typography variant="h6" style={{ padding: "20px", width: "100%" }}>
+          액세서리
+        </Typography>
+      </Link>
+      <Link href="/Digital" underline="none" sx={{ color: "black" }}>
+        <Typography variant="h6" style={{ padding: "20px", width: "100%" }}>
+          디지털
+        </Typography>
+      </Link>
     </Drawer>
   ) : null;
 };
 
 export default MyDrawer;
+
+/* <div style={{ width: "320px", marginTop: "40px" }}>ㅁㄴㅇㄻㄴㅇㄹ</div>
+<Button id="drawer">패션</Button>
+<br />
+<Button id="drawer">액세서리</Button>
+<br />
+<Button id="drawer">디지털</Button> */
