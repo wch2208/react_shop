@@ -8,7 +8,12 @@ import { useRecoilState } from "recoil";
 import { Product, ProductsAtom } from "../../recoil/ProductsAtom";
 import { useEffect } from "react";
 
-const CardList = ({ category }) => {
+interface CardListProps {
+  category: string;
+  i: number;
+}
+
+const CardList = ({ category, i }: CardListProps) => {
   const [products, setProducts] = useRecoilState<Product[]>(ProductsAtom);
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -17,9 +22,9 @@ const CardList = ({ category }) => {
       .catch(err => console.log(err));
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(products);
+
   return (
-    <Grid container sx={{ mt: 7 }}>
+    <Grid container sx={{ mt: 7, ml: "auto", mr: "auto", maxWidth: "1344px" }}>
       <Grid
         item
         xs={12}
@@ -34,8 +39,8 @@ const CardList = ({ category }) => {
       </Grid>
       {products
         .filter(product => product.category.includes(category))
-        .map(product => {
-          return (
+        .map((product, index) => {
+          return index < i ? (
             <Grid item xs={12} sm={6} md={3} key={product.id}>
               <Link underline="none" href={`/product/` + `${product.id}`}>
                 <Card sx={{ m: 1 }}>
@@ -59,7 +64,7 @@ const CardList = ({ category }) => {
                 </Card>
               </Link>
             </Grid>
-          );
+          ) : null;
         })}
     </Grid>
   );

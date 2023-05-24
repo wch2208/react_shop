@@ -2,10 +2,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/home/header";
 import Footer from "./components/home/footer";
 import Box from "@mui/material/Box";
-import FashionPage from "./components/Category/Fashion";
+import FashionPage from "./components/Category/clothing";
 import Home from "./components/home/Home";
-import AccesoryPage from "./components/Category/Accesory";
-import DigitalPage from "./components/Category/Digital";
+import AccesoryPage from "./components/Category/jewelery";
+import DigitalPage from "./components/Category/electronics";
 import ProductDetail from "./components/PruductDetail/ProductDetail";
 import Cart from "./components/Category/Cart";
 
