@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
 export default function Cart() {
-  console.log(cards.products);
   return (
     <>
       <Grid container sx={{ mt: 9, flex: 1 }}>
