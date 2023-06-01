@@ -1,4 +1,3 @@
-import React from "react";
 import MaterialUISwitch from "./modeSwitchBtn";
 import Toolbar from "@mui/material/Toolbar";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
@@ -10,9 +9,9 @@ import Grid from "@mui/material/Grid";
 import Hidden from "@mui/material/Hidden";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import { useRecoilState } from "recoil";
-import { DrawerOpen } from "../../recoil/DrawerOpen";
+import { DrawerOpen } from "../../recoil/atoms/DrawerOpen";
 
-const Header: React.FC = () => {
+const Header = () => {
   const [open, setOpen] = useRecoilState(DrawerOpen);
   return (
     <Grid
@@ -46,14 +45,14 @@ const Header: React.FC = () => {
           React Shop
         </Button>
         <Hidden mdDown>
-          <Link href="../Fashion" className="passionCategoryBtn">
-            <Button className="passionCategoryBtn">패션</Button>
+          <Link href="../Clothing">
+            <Button>의류</Button>
           </Link>
-          <Link href="../Accesory" className="AccesaryCategoryBtn">
-            <Button className="AccesaryCategoryBtn">액세서리</Button>
+          <Link href="../Jewelery">
+            <Button>주얼리</Button>
           </Link>
-          <Link href="../Digital" className="DigitalCategoryBtn">
-            <Button className="digitalCategoryBtn">디지털</Button>
+          <Link href="../Electronics">
+            <Button>컴퓨터 주변기기</Button>
           </Link>
         </Hidden>
       </Toolbar>

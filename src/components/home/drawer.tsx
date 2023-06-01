@@ -1,7 +1,7 @@
 import { Drawer, Typography } from "@material-ui/core";
 import Link from "@mui/material/Link";
 import { useRecoilState } from "recoil";
-import { DrawerOpen } from "../../recoil/DrawerOpen";
+import { DrawerOpen } from "../../recoil/atoms/DrawerOpen";
 
 interface MyDrawerProps {
   open: boolean;
@@ -10,9 +10,7 @@ interface MyDrawerProps {
 
 const MyDrawer: React.FC<MyDrawerProps> = () => {
   const [open, setOpen] = useRecoilState(DrawerOpen);
-  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    console.log(event.currentTarget.id);
-    event.defaultPrevented;
+  const handleClick = () => {
     setOpen(false);
   };
   return open ? (
@@ -21,24 +19,23 @@ const MyDrawer: React.FC<MyDrawerProps> = () => {
       style={{
         backgroundColor: "#fff",
         width: 0,
-        transition: "width 10s",
       }}
       onClick={handleClick}
       id="close"
     >
-      <Link href="/Fashion" underline="none" sx={{ color: "black" }}>
+      <Link href="/Clothing" underline="none" color={"black"}>
         <Typography variant="h6" style={{ padding: "20px", width: "100%" }}>
-          패션
+          의류
         </Typography>
       </Link>
-      <Link href="/Accesory" underline="none" sx={{ color: "black" }}>
+      <Link href="/Jewelery" underline="none" sx={{ color: "black" }}>
         <Typography variant="h6" style={{ padding: "20px", width: "100%" }}>
-          액세서리
+          주얼리
         </Typography>
       </Link>
-      <Link href="/Digital" underline="none" sx={{ color: "black" }}>
+      <Link href="/Electronics" underline="none" sx={{ color: "black" }}>
         <Typography variant="h6" style={{ padding: "20px", width: "100%" }}>
-          디지털
+          컴퓨터 주변기기
         </Typography>
       </Link>
     </Drawer>
@@ -46,10 +43,3 @@ const MyDrawer: React.FC<MyDrawerProps> = () => {
 };
 
 export default MyDrawer;
-
-/* <div style={{ width: "320px", marginTop: "40px" }}>ㅁㄴㅇㄻㄴㅇㄹ</div>
-<Button id="drawer">패션</Button>
-<br />
-<Button id="drawer">액세서리</Button>
-<br />
-<Button id="drawer">디지털</Button> */

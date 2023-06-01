@@ -10,7 +10,7 @@ export interface Product {
   title: string;
 }
 
-export const ProductsAtom = atom<Array<Product>>({
-  key: "productsAtom",
+export const ProductsState = atom<Product[]>({
+  key: "ProductsState",
   default: [],
 });

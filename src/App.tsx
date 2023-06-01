@@ -3,11 +3,13 @@ import Header from "./components/home/header";
 import Footer from "./components/home/footer";
 import Box from "@mui/material/Box";
 import Home from "./components/home/Home";
-import ClothingPage from "./components/Category/clothing";
-import JeweleryPage from "./components/Category/jewelery";
-import ElectronicsPage from "./components/Category/electronics";
+import ClothingPage from "./components/Category/Clothing";
+import JeweleryPage from "./components/Category/Jewelery";
+import ElectronicsPage from "./components/Category/Electronics";
 import ProductDetail from "./components/PruductDetail/ProductDetail";
 import Cart from "./components/Category/Cart";
+import React from "react";
+import { Typography } from "@mui/material";
 
 function App() {
   return (
@@ -21,14 +23,25 @@ function App() {
     >
       <BrowserRouter>
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/clothing" element={<ClothingPage />} />
-          <Route path="/jewelery" element={<JeweleryPage />} />
-          <Route path="/electronics" element={<ElectronicsPage />} />
-          <Route path="/product/:id" element={<ProductDetail />} />
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
+        <React.Suspense
+          fallback={
+            <Typography
+              variant={"h6"}
+              sx={{ mt: "100px", ml: "auto", mr: "auto" }}
+            >
+              Loading...
+            </Typography>
+          }
+        >
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/clothing" element={<ClothingPage />} />
+            <Route path="/jewelery" element={<JeweleryPage />} />
+            <Route path="/electronics" element={<ElectronicsPage />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </React.Suspense>
         <Footer />
       </BrowserRouter>
     </Box>

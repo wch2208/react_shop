@@ -4,9 +4,8 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
-import { useRecoilState } from "recoil";
-import { Product, ProductsAtom } from "../../recoil/ProductsAtom";
-import { useEffect } from "react";
+import { useRecoilValue } from "recoil";
+import { ProductsList } from "../../recoil/selectors/FetchApi";
 
 interface CardListProps {
   category: string;
@@ -14,14 +13,7 @@ interface CardListProps {
 }
 
 const CardList = ({ category, i }: CardListProps) => {
-  const [products, setProducts] = useRecoilState<Product[]>(ProductsAtom);
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then(res => res.json())
-      .then((res: Product[]) => setProducts(res))
-      .catch(err => console.log(err));
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const products = useRecoilValue(ProductsList);
 
   return (
     <Grid container sx={{ mt: 7, ml: "auto", mr: "auto", maxWidth: "1344px" }}>
