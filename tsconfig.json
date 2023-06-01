@@ -15,7 +15,8 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["react/next", "react-dom/next", "react-router-dom"]
+    "types": ["react/next", "react-dom/next", "react-router-dom"],
+    "suppressImplicitAnyIndexErrors": true
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
