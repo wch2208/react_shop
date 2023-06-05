@@ -31,11 +31,6 @@ const Footer: React.FC = () => {
         columnSpacing={1}
         alignItems="center"
         justifyContent="center"
-        // sx={{
-        //   display: "flex",
-        //   justifyContent: "center",
-        //   textAlign: "center",
-        // }}
       >
         <Grid item>
           <Link href="https://www.facebook.com">
@@ -64,7 +59,7 @@ const Footer: React.FC = () => {
           </Link>
         </Grid>
       </Grid>
-      <Grid item>Copiright © 2023 wonway</Grid>
+      <Grid item>Copyright © 2023 WonChanHee</Grid>
     </Grid>
   );
 };

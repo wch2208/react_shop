@@ -11,7 +11,7 @@ const carouselImage = [
     alrText: "패션 카테고리",
     title: "Clothing",
     description: "이제 막 도착한 패션 청바지를 구입해보세요.",
-    href: "/Fashion",
+    href: "/Clothing",
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const carouselImage = [
     alrText: "액세서리 카테고리",
     title: "Jewelery",
     description: "다양한 상품을 둘러보세요.",
-    href: "/Accesory",
+    href: "/Jewelery",
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const carouselImage = [
     alrText: "디지털 카테고리",
     title: "Electronics",
     description: "여러 상품이 있습니다.",
-    href: "/Digital",
+    href: "/Electronics",
   },
 ];
 

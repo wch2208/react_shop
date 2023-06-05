@@ -1,6 +1,6 @@
-import CardList from "../home/cardList";
+import CardList from "../Product/cardList";
 import { useRecoilValue } from "recoil";
-import { ProductsList } from "../../recoil/selectors/FetchApi";
+import { ProductsList } from "../../store/selectors/FetchApi";
 
 export default function ElectronicsPage() {
   const products = useRecoilValue(ProductsList);

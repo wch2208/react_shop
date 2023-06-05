@@ -1,7 +1,7 @@
 import { Drawer, Typography } from "@material-ui/core";
 import Link from "@mui/material/Link";
 import { useRecoilState } from "recoil";
-import { DrawerOpen } from "../../recoil/atoms/DrawerOpen";
+import { DrawerOpen } from "../../store/atoms/DrawerOpen";
 
 interface MyDrawerProps {
   open: boolean;

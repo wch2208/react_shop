@@ -5,7 +5,9 @@ import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import { useRecoilValue } from "recoil";
-import { ProductsList } from "../../recoil/selectors/FetchApi";
+import { ProductsList } from "../../store/selectors/FetchApi";
+
+//상품목록 렌더링
 
 interface CardListProps {
   category: string;
@@ -16,7 +18,10 @@ const CardList = ({ category, i }: CardListProps) => {
   const products = useRecoilValue(ProductsList);
 
   return (
-    <Grid container sx={{ mt: 7, ml: "auto", mr: "auto", maxWidth: "1344px" }}>
+    <Grid
+      container
+      sx={{ mt: 7, ml: "auto", mr: "auto", maxWidth: "1344px", flex: "1" }}
+    >
       <Grid
         item
         xs={12}

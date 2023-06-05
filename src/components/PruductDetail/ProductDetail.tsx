@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import Rating from "@mui/material/Rating";
 import Link from "@mui/material/Link";
 import { useRecoilValue } from "recoil";
-import { ProductsList } from "../../recoil/selectors/FetchApi";
+import { ProductsList } from "../../store/selectors/FetchApi";
 
 const ProductDetail = () => {
   //상품리스트 가져오기

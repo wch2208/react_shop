@@ -1,15 +1,15 @@
-import MaterialUISwitch from "./modeSwitchBtn";
+import MaterialUISwitch from "../MUIcomponents/modeSwitchBtn";
 import Toolbar from "@mui/material/Toolbar";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
 import { Button, TextField, Badge } from "@material-ui/core";
 import DensityMediumRoundedIcon from "@mui/icons-material/DensityMediumRounded";
-import MyDrawer from "./drawer";
+import MyDrawer from "../MUIcomponents/drawer";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Hidden from "@mui/material/Hidden";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import { useRecoilState } from "recoil";
-import { DrawerOpen } from "../../recoil/atoms/DrawerOpen";
+import { DrawerOpen } from "../../store/atoms/DrawerOpen";
 
 const Header = () => {
   const [open, setOpen] = useRecoilState(DrawerOpen);

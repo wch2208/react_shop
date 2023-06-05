@@ -66,6 +66,7 @@ export default function CustomizedSwitches() {
           setMode("dark");
         }
         console.log(mode);
+        console.log(e.target);
       }}
     />
   );

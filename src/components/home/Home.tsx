@@ -1,8 +1,9 @@
-import CardList from "./cardList";
-import CarouselSection from "./carousel";
+import CardList from "../Product/cardList";
+import CarouselSection from "../Product/carousel";
 
 export default function Home() {
   const displayCount = 4;
+
   return (
     <>
       <CarouselSection />
