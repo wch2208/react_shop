@@ -1,9 +1,9 @@
 import CardList from "../Product/cardList";
 import { useRecoilValue } from "recoil";
-import { ProductsList } from "../../store/selectors/FetchApi";
+import { ProductsState } from "../../store/atoms/ProductsAtom";
 
 export default function JeweleryPage() {
-  const products = useRecoilValue(ProductsList);
+  const products = useRecoilValue(ProductsState);
   const CategoryList = products.filter(product => {
     return product.category.includes("jewelery");
   });

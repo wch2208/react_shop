@@ -1,5 +1,5 @@
 import { Drawer, Typography } from "@material-ui/core";
-import Link from "@mui/material/Link";
+import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { DrawerOpen } from "../../store/atoms/DrawerOpen";
 
@@ -23,17 +23,20 @@ const MyDrawer: React.FC<MyDrawerProps> = () => {
       onClick={handleClick}
       id="close"
     >
-      <Link href="/Clothing" underline="none" color={"black"}>
+      <Link to="/Clothing" style={{ textDecoration: "none", color: "black" }}>
         <Typography variant="h6" style={{ padding: "20px", width: "100%" }}>
           의류
         </Typography>
       </Link>
-      <Link href="/Jewelery" underline="none" sx={{ color: "black" }}>
+      <Link to="/Jewelery" style={{ textDecoration: "none", color: "black" }}>
         <Typography variant="h6" style={{ padding: "20px", width: "100%" }}>
           주얼리
         </Typography>
       </Link>
-      <Link href="/Electronics" underline="none" sx={{ color: "black" }}>
+      <Link
+        to="/Electronics"
+        style={{ textDecoration: "none", color: "black" }}
+      >
         <Typography variant="h6" style={{ padding: "20px", width: "100%" }}>
           컴퓨터 주변기기
         </Typography>

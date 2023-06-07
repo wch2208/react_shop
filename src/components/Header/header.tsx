@@ -4,15 +4,18 @@ import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlin
 import { Button, TextField, Badge } from "@material-ui/core";
 import DensityMediumRoundedIcon from "@mui/icons-material/DensityMediumRounded";
 import MyDrawer from "../MUIcomponents/drawer";
-import Link from "@mui/material/Link";
+import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import Hidden from "@mui/material/Hidden";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { DrawerOpen } from "../../store/atoms/DrawerOpen";
+import { CartItemCount } from "../../store/atoms/CartItemCount";
 
 const Header = () => {
   const [open, setOpen] = useRecoilState(DrawerOpen);
+  const Count = useRecoilValue(CartItemCount);
+
   return (
     <Grid
       container
@@ -23,6 +26,7 @@ const Header = () => {
         backgroundColor: "#ffffff",
         zIndex: 10,
         width: "100vw",
+        boxShadow: "0px 0px 10px #e7e7e7",
       }}
     >
       <MyDrawer
@@ -41,17 +45,17 @@ const Header = () => {
             <DensityMediumRoundedIcon />
           </Button>
         </Hidden>
-        <Button className="homeBtn" href="/">
-          React Shop
-        </Button>
+        <Link to="/">
+          <Button className="homeBtn">React Shop</Button>
+        </Link>
         <Hidden mdDown>
-          <Link href="../Clothing">
+          <Link to="../clothing">
             <Button>의류</Button>
           </Link>
-          <Link href="../Jewelery">
+          <Link to="../jewelery">
             <Button>주얼리</Button>
           </Link>
-          <Link href="../Electronics">
+          <Link to="../electronics">
             <Button>컴퓨터 주변기기</Button>
           </Link>
         </Hidden>
@@ -67,11 +71,13 @@ const Header = () => {
         <Hidden mdUp>
           <SearchRoundedIcon />
         </Hidden>
-        <Button>
-          <Badge badgeContent={10} color="secondary" overlap="rectangular">
-            <ShoppingBasketOutlinedIcon />
-          </Badge>
-        </Button>
+        <Link to="/cart">
+          <Button>
+            <Badge badgeContent={Count} color="secondary" overlap="rectangular">
+              <ShoppingBasketOutlinedIcon />
+            </Badge>
+          </Button>
+        </Link>
       </Toolbar>
     </Grid>
   );

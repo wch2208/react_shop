@@ -3,9 +3,9 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid";
-import Link from "@mui/material/Link";
+import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import { ProductsList } from "../../store/selectors/FetchApi";
+import { ProductsState } from "../../store/atoms/ProductsAtom";
 
 //상품목록 렌더링
 
@@ -15,7 +15,7 @@ interface CardListProps {
 }
 
 const CardList = ({ category, i }: CardListProps) => {
-  const products = useRecoilValue(ProductsList);
+  const products = useRecoilValue(ProductsState);
 
   return (
     <Grid
@@ -39,7 +39,10 @@ const CardList = ({ category, i }: CardListProps) => {
         .map((product, index) => {
           return index < i ? (
             <Grid item xs={12} sm={6} md={3} key={product.id}>
-              <Link underline="none" href={`/product/` + `${product.id}`}>
+              <Link
+                to={`/product/` + `${product.id}`}
+                style={{ textDecoration: "none" }}
+              >
                 <Card sx={{ m: 1 }}>
                   <CardMedia
                     sx={{ height: "320px", objectFit: "contain" }}
@@ -51,7 +54,7 @@ const CardList = ({ category, i }: CardListProps) => {
                     sx={{
                       textUnderlineOffset: "none",
                       height: "180px",
-                      backgroundColor: "#f3f4f6",
+                      backgroundColor: "#ffffff",
                     }}
                   >
                     <Typography variant="body2">{product.title}</Typography>

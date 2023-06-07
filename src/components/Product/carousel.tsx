@@ -3,6 +3,7 @@ import { Box } from "@material-ui/core";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 const carouselImage = [
   {
@@ -65,13 +66,14 @@ const images = carouselImage.map(img => {
       >
         {img.description}
       </Typography>
-      <Button
-        variant="contained"
-        sx={{ position: "absolute", bottom: "100px", left: "58px" }}
-        href={img.href}
-      >
-        바로가기
-      </Button>
+      <Link to={img.href}>
+        <Button
+          variant="contained"
+          sx={{ position: "absolute", bottom: "100px", left: "58px" }}
+        >
+          바로가기
+        </Button>
+      </Link>
     </Paper>
   );
 });

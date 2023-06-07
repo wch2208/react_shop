@@ -4,7 +4,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import Grid from "@mui/material/Grid";
 import { Typography } from "@mui/material";
 import { Icons } from "./icon";
-import Link from "@material-ui/core/Link";
+import { Link } from "react-router-dom";
 import Tooltip from "@material-ui/core/Tooltip";
 
 const Footer: React.FC = () => {
@@ -33,14 +33,14 @@ const Footer: React.FC = () => {
         justifyContent="center"
       >
         <Grid item>
-          <Link href="https://www.facebook.com">
+          <Link to="https://www.facebook.com">
             <Tooltip title="Facebook" placement="bottom" arrow enterDelay={100}>
               <FacebookIcon />
             </Tooltip>
           </Link>
         </Grid>
         <Grid item>
-          <Link href="https://www.instagram.com">
+          <Link to="https://www.instagram.com">
             <Tooltip
               title="Instagram"
               placement="bottom"
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
           </Link>
         </Grid>
         <Grid item>
-          <Link href="https://www.github.com">
+          <Link to="https://www.github.com">
             <Tooltip title="Github" placement="bottom" arrow enterDelay={100}>
               <GitHubIcon />
             </Tooltip>
