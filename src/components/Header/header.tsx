@@ -1,19 +1,18 @@
-import MaterialUISwitch from "../MUIcomponents/modeSwitchBtn";
 import Toolbar from "@mui/material/Toolbar";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
-import { Button, TextField, Badge } from "@material-ui/core";
-import DensityMediumRoundedIcon from "@mui/icons-material/DensityMediumRounded";
-import MyDrawer from "../MUIcomponents/drawer";
+import { Badge } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import Hidden from "@mui/material/Hidden";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { DrawerOpen } from "../../store/atoms/DrawerOpen";
+import { useRecoilValue } from "recoil";
 import { CartItemCount } from "../../store/atoms/CartItemCount";
+import { DarkModeIcon } from "../../utils/DarkMode";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import TemporaryDrawer from "../MUIcomponents/drawer";
 
 const Header = () => {
-  const [open, setOpen] = useRecoilState(DrawerOpen);
   const Count = useRecoilValue(CartItemCount);
 
   return (
@@ -23,58 +22,75 @@ const Header = () => {
       sx={{
         position: "fixed",
         top: 0,
-        backgroundColor: "#ffffff",
+        bgcolor: "background.paper",
+        color: "text.primary",
         zIndex: 10,
         width: "100vw",
         boxShadow: "0px 0px 10px #e7e7e7",
       }}
     >
-      <MyDrawer
-        open={open}
-        handleClick={function (): void {
-          throw new Error("Function not implemented.");
-        }}
-      />
       <Toolbar sx={{ p: 0 }}>
         <Hidden mdUp>
-          <Button
-            onClick={() => {
-              open ? setOpen(false) : setOpen(true);
-            }}
-          >
-            <DensityMediumRoundedIcon />
-          </Button>
+          <TemporaryDrawer />
         </Hidden>
-        <Link to="/">
-          <Button className="homeBtn">React Shop</Button>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <Button
+            color="primary"
+            sx={{ fontSize: "17px", color: "text.primary" }}
+          >
+            React Shop
+          </Button>
         </Link>
         <Hidden mdDown>
           <Link to="../clothing">
-            <Button>의류</Button>
+            <Button
+              color="primary"
+              sx={{ fontSize: "20px", color: "text.primary" }}
+            >
+              의류
+            </Button>
           </Link>
           <Link to="../jewelery">
-            <Button>주얼리</Button>
+            <Button
+              color="primary"
+              sx={{ fontSize: "20px", color: "text.primary" }}
+            >
+              주얼리
+            </Button>
           </Link>
           <Link to="../electronics">
-            <Button>컴퓨터 주변기기</Button>
+            <Button
+              color="primary"
+              sx={{ fontSize: "20px", color: "text.primary" }}
+            >
+              디지털
+            </Button>
           </Link>
         </Hidden>
       </Toolbar>
-      <Toolbar sx={{ p: 0 }}>
-        <MaterialUISwitch />
+      <Toolbar
+        sx={{
+          p: 0,
+          display: "flex",
+          justifyContent: "flex-end",
+          width: "30%",
+        }}
+      >
+        <DarkModeIcon />
         <Hidden mdDown>
           <TextField
             placeholder="Search"
+            variant="standard"
             onChange={e => console.log(e.target.value)}
           />
         </Hidden>
         <Hidden mdUp>
-          <SearchRoundedIcon />
+          <SearchRoundedIcon sx={{ marginLeft: "12px" }} />
         </Hidden>
         <Link to="/cart">
           <Button>
             <Badge badgeContent={Count} color="secondary" overlap="rectangular">
-              <ShoppingBasketOutlinedIcon />
+              <ShoppingBasketOutlinedIcon color="action" />
             </Badge>
           </Button>
         </Link>

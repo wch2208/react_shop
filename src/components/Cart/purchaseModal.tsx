@@ -5,7 +5,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import { useUpdateCart } from "../../store/utils/useUpdateCart";
+import { useUpdateCart } from "../../utils/useUpdateCart";
 
 export default function PurchaseModal() {
   const [open, setOpen] = React.useState(false);

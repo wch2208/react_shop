@@ -20,7 +20,13 @@ const CardList = ({ category, i }: CardListProps) => {
   return (
     <Grid
       container
-      sx={{ mt: 7, ml: "auto", mr: "auto", maxWidth: "1344px", flex: "1" }}
+      sx={{
+        mt: "100px",
+        ml: "auto",
+        mr: "auto",
+        maxWidth: "1344px",
+        overflowX: "scroll",
+      }}
     >
       <Grid
         item
@@ -30,6 +36,7 @@ const CardList = ({ category, i }: CardListProps) => {
           textAlign: "center",
           fontWeight: "bold",
           fontSize: "2rem",
+          color: "text.primary",
         }}
       >
         {category}
@@ -45,7 +52,11 @@ const CardList = ({ category, i }: CardListProps) => {
               >
                 <Card sx={{ m: 1 }}>
                   <CardMedia
-                    sx={{ height: "320px", objectFit: "contain" }}
+                    sx={{
+                      height: "320px",
+                      objectFit: "contain",
+                      bgcolor: "white",
+                    }}
                     component="img"
                     src={product.image}
                     alt={product.title}
@@ -54,7 +65,7 @@ const CardList = ({ category, i }: CardListProps) => {
                     sx={{
                       textUnderlineOffset: "none",
                       height: "180px",
-                      backgroundColor: "#ffffff",
+                      bgcolor: "theme.palette.main",
                     }}
                   >
                     <Typography variant="body2">{product.title}</Typography>

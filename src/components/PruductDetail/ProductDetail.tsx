@@ -8,7 +8,7 @@ import Rating from "@mui/material/Rating";
 import { Link } from "react-router-dom";
 import { ProductsState } from "../../store/atoms/ProductsAtom";
 import { useRecoilValue } from "recoil";
-import { useUpdateCart } from "../../store/utils/useUpdateCart";
+import { useUpdateCart } from "../../utils/useUpdateCart";
 
 const ProductDetail: React.FC = () => {
   const products = useRecoilValue(ProductsState);
@@ -40,12 +40,12 @@ const ProductDetail: React.FC = () => {
           xs={4}
         >
           <img
-            style={{ width: "100%" }}
+            style={{ width: "100%", borderRadius: "20px" }}
             src={product.image}
             alt={product.title}
           />
         </Grid>
-        <Grid item xs={12} md={7} sx={{ m: 4 }}>
+        <Grid item xs={12} md={7} sx={{ m: 4, color: "text.primary" }}>
           <Grid item>{product.title}</Grid>
           <Grid
             item
@@ -85,7 +85,7 @@ const ProductDetail: React.FC = () => {
             >
               장바구니 담기
             </Button>
-            <Link to={"/cart"}>
+            <Link to={"/cart"} style={{ textDecoration: "none" }}>
               <Button variant="outlined" style={{ marginLeft: "10px" }}>
                 장바구니 이동
               </Button>

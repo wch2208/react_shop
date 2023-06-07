@@ -8,13 +8,9 @@ import JeweleryPage from "./components/Category/jewelery";
 import ElectronicsPage from "./components/Category/electronics";
 import ProductDetail from "./components/PruductDetail/ProductDetail";
 import Cart from "./components/Cart/Cart";
-import { useRecoilValue } from "recoil";
-import { ProductsState } from "./store/atoms/ProductsAtom";
+import ScrollToTop from "./utils/ScrollToTop";
 
 function App() {
-  const productsState = useRecoilValue(ProductsState);
-  console.log(productsState);
-
   return (
     <Box
       sx={{
@@ -22,9 +18,11 @@ function App() {
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
+        bgcolor: "background.default",
       }}
     >
       <BrowserRouter>
+        <ScrollToTop />
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />

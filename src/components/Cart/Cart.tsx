@@ -8,7 +8,7 @@ import { useRecoilValue } from "recoil";
 import { Link } from "react-router-dom";
 import PurchaseModal from "./purchaseModal";
 import { CartItemAtom } from "../../store/atoms/cartItemAtom";
-import { useUpdateCart } from "../../store/utils/useUpdateCart";
+import { useUpdateCart } from "../../utils/useUpdateCart";
 import { TotalPriceSelector } from "../../store/selectors/TotalPriceSelector";
 
 export default function Cart() {
@@ -18,25 +18,33 @@ export default function Cart() {
 
   const CartProduct = cartItems.map(cartItem => {
     return (
-      <Grid container key={cartItem.id}>
+      <Grid container key={cartItem.id} sx={{ mt: 4, p: 1 }}>
         <Grid
           item
           sx={{
-            mt: 4,
+            width: "100%",
+            height: "320px",
+            mt: "4px",
             ml: "auto",
             mr: "auto",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "white",
+            borderRadius: "20px",
+            p: 2,
           }}
-          xs={2}
+          md={4}
         >
           <Link to={`/product/` + `${cartItem.id}`}>
             <img
-              style={{ width: "100%" }}
+              style={{ height: "250px", width: "100%" }}
               src={cartItem.image}
               alt={cartItem.title}
             />
           </Link>
         </Grid>
-        <Grid item xs={10} md={7} sx={{ m: 4 }}>
+        <Grid item xs={10} md={7} sx={{ m: 4, color: "text.primary" }}>
           <Grid item>
             <Typography variant="h6"> {cartItem.title}</Typography>
           </Grid>
@@ -95,7 +103,7 @@ export default function Cart() {
         </Stack>
       </Grid>
       <Grid item md={9} className="products">
-        {CartProduct ? CartProduct : <div>No Product</div>}
+        {CartProduct}
       </Grid>
       <Grid
         item
@@ -111,7 +119,9 @@ export default function Cart() {
         }}
         gap={2}
       >
-        <Typography variant="h6">총 : ${totalCost}</Typography>
+        <Typography variant="h6" sx={{ color: "text.primary" }}>
+          총 : ${totalCost}
+        </Typography>
         <PurchaseModal />
       </Grid>
     </Grid>

@@ -4,7 +4,8 @@ import App from "./App";
 import CssBaseline from "@mui/material/CssBaseline";
 import { RecoilRoot } from "recoil";
 import Typography from "@mui/material/Typography";
-import FetchData from "./store/utils/FetchData";
+import FetchData from "./utils/FetchData";
+import { ToggleColorMode } from "./utils/DarkMode";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
@@ -18,7 +19,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         }
       >
         <FetchData>
-          <App />
+          <ToggleColorMode>
+            <App />
+          </ToggleColorMode>
         </FetchData>
       </React.Suspense>
     </RecoilRoot>

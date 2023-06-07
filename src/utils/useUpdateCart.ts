@@ -1,7 +1,7 @@
 import { useRecoilState, useRecoilValue } from "recoil";
-import { CartItemAtom } from "../atoms/cartItemAtom";
-import { CartItemCount } from "../atoms/CartItemCount";
-import { Product, ProductsState } from "../atoms/ProductsAtom";
+import { CartItemAtom } from "../store/atoms/cartItemAtom";
+import { CartItemCount } from "../store/atoms/CartItemCount";
+import { Product, ProductsState } from "../store/atoms/ProductsAtom";
 
 export function useUpdateCart() {
   const products = useRecoilValue(ProductsState);

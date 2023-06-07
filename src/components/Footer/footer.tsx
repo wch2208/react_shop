@@ -15,14 +15,17 @@ const Footer: React.FC = () => {
       alignItems="center"
       justifyContent="space-between"
       sx={{
-        backgroundColor: "#f2f2f2",
         mt: 5,
         p: 5,
         height: "300px",
+        backgroundColor: "background.paper",
+        borderTop: "1px solid #e0e0e0",
       }}
     >
       <Grid item>
-        <Typography>React Shop</Typography>
+        <Typography color={"text.primary"} variant="h6">
+          React Shop
+        </Typography>
       </Grid>
       <Icons />
       <Grid
@@ -35,7 +38,7 @@ const Footer: React.FC = () => {
         <Grid item>
           <Link to="https://www.facebook.com">
             <Tooltip title="Facebook" placement="bottom" arrow enterDelay={100}>
-              <FacebookIcon />
+              <FacebookIcon sx={{ color: "text.primary" }} />
             </Tooltip>
           </Link>
         </Grid>
@@ -47,19 +50,21 @@ const Footer: React.FC = () => {
               arrow
               enterDelay={100}
             >
-              <InstagramIcon />
+              <InstagramIcon sx={{ color: "text.primary" }} />
             </Tooltip>
           </Link>
         </Grid>
         <Grid item>
           <Link to="https://www.github.com">
             <Tooltip title="Github" placement="bottom" arrow enterDelay={100}>
-              <GitHubIcon />
+              <GitHubIcon sx={{ color: "text.primary" }} />
             </Tooltip>
           </Link>
         </Grid>
       </Grid>
-      <Grid item>Copyright © 2023 WonChanHee</Grid>
+      <Grid item sx={{ color: "text.primary" }}>
+        Copyright © 2023 WonChanHee
+      </Grid>
     </Grid>
   );
 };

@@ -10,24 +10,24 @@ const carouselImage = [
     id: 1,
     src: "https://cdn.pixabay.com/photo/2014/08/26/21/48/jeans-428613_960_720.jpg",
     alrText: "패션 카테고리",
-    title: "Clothing",
-    description: "이제 막 도착한 패션 청바지를 구입해보세요.",
+    title: "의류",
+    description: "편안하고 세련된 디자인",
     href: "/Clothing",
   },
   {
     id: 2,
     src: "https://cdn.pixabay.com/photo/2017/08/06/17/13/diamond-2594307_960_720.jpg",
     alrText: "액세서리 카테고리",
-    title: "Jewelery",
-    description: "다양한 상품을 둘러보세요.",
+    title: "주얼리",
+    description: "더욱 빛나는 특별한 순간",
     href: "/Jewelery",
   },
   {
     id: 3,
-    src: "https://cdn.pixabay.com/photo/2016/06/08/09/53/digital-storage-media-1443484_960_720.jpg",
+    src: "https://wrtn-image-user-output.s3.ap-northeast-2.amazonaws.com/645b8270b1b37ef6674e23e2/1686157349165.png",
     alrText: "디지털 카테고리",
-    title: "Electronics",
-    description: "여러 상품이 있습니다.",
+    title: "디지털",
+    description: "최고의 성능, 품질, 가치",
     href: "/Electronics",
   },
 ];
@@ -47,10 +47,11 @@ const images = carouselImage.map(img => {
       <Typography
         sx={{
           position: "absolute",
-          bottom: "178px",
-          left: "58px",
+          bottom: "190px",
+          left: "17px",
           color: "white",
-          fontSize: "20px",
+          fontSize: "50px",
+          fontWeight: "bold",
         }}
       >
         {img.title}
@@ -59,9 +60,10 @@ const images = carouselImage.map(img => {
         sx={{
           position: "absolute",
           bottom: "150px",
-          left: "58px",
+          left: "18px",
           color: "white",
-          fontSize: "16px",
+          fontSize: "25px",
+          fontWeight: "bold",
         }}
       >
         {img.description}
@@ -69,7 +71,7 @@ const images = carouselImage.map(img => {
       <Link to={img.href}>
         <Button
           variant="contained"
-          sx={{ position: "absolute", bottom: "100px", left: "58px" }}
+          sx={{ position: "absolute", bottom: "100px", left: "18px" }}
         >
           바로가기
         </Button>

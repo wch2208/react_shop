@@ -1,6 +1,6 @@
 import { ReactNode, useEffect } from "react";
 import { useSetRecoilState } from "recoil";
-import { ProductsState } from "../atoms/ProductsAtom";
+import { ProductsState } from "../store/atoms/ProductsAtom";
 
 interface FetchDataProps {
   children: ReactNode;
