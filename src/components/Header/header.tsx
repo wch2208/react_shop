@@ -1,19 +1,54 @@
 import Toolbar from "@mui/material/Toolbar";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
 import { Badge } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import Hidden from "@mui/material/Hidden";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { CartItemCount } from "../../store/atoms/CartItemCount";
-import { DarkModeIcon } from "../../utils/DarkMode";
+import { DarkModeIcon } from "../MUIcomponents/DarkMode";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import TemporaryDrawer from "../MUIcomponents/drawer";
+import React, { ChangeEvent, useState } from "react";
+import { SearchQueryAtom } from "../../store/atoms/SearchQueryAtom";
+import { ProductsState } from "../../store/atoms/ProductsAtom";
+import SearchList from "../MUIcomponents/SearchList";
 
 const Header = () => {
   const Count = useRecoilValue(CartItemCount);
+  const [searchQuery, setSearchQuery] = useRecoilState(SearchQueryAtom);
+  const products = useRecoilValue(ProductsState);
+  const [toggleSearch, setToggleSearch] = useState(false);
+  const navigate = useNavigate();
+
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const filteredProducts = products.filter(product => {
+      return product.title.toLowerCase().includes(e.target.value.toLowerCase());
+    });
+    setSearchQuery(filteredProducts);
+
+    if (e.target.value === "") {
+      setSearchQuery([]);
+    }
+  };
+  const searchOut = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    e.target.value = "";
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      const targetProduct = searchQuery[0];
+      navigate(`/product/${targetProduct.id}`);
+      setSearchQuery([]);
+      (e.target as HTMLInputElement).value = "";
+    }
+  };
 
   return (
     <Grid
@@ -81,20 +116,62 @@ const Header = () => {
           <TextField
             placeholder="Search"
             variant="standard"
-            onChange={e => console.log(e.target.value)}
+            type="search"
+            onChange={handleChange}
+            onBlur={searchOut}
+            onKeyDown={handleKeyDown}
           />
         </Hidden>
+
         <Hidden mdUp>
-          <SearchRoundedIcon sx={{ marginLeft: "12px" }} />
+          <Button
+            style={{
+              maxWidth: "40px",
+              minWidth: "40px",
+            }}
+          >
+            <SearchRoundedIcon
+              onClick={() => setToggleSearch(!toggleSearch)}
+              color="action"
+            />
+          </Button>
         </Hidden>
         <Link to="/cart">
-          <Button>
+          <Button
+            style={{
+              maxWidth: "40px",
+              minWidth: "40px",
+            }}
+          >
             <Badge badgeContent={Count} color="secondary" overlap="rectangular">
               <ShoppingBasketOutlinedIcon color="action" />
             </Badge>
           </Button>
         </Link>
       </Toolbar>
+      <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
+        <Hidden mdUp>
+          {toggleSearch ? (
+            <>
+              <TextField
+                sx={{ borderTop: "1px solid #e7e7e7" }}
+                fullWidth
+                placeholder="Search"
+                variant="standard"
+                type="search"
+                onChange={handleChange}
+                onBlur={searchOut}
+                autoFocus
+                onKeyDown={handleKeyDown}
+              />
+              {searchQuery.length > 0 ? <SearchList mode="mdDown" /> : null}
+            </>
+          ) : null}
+        </Hidden>
+        <Hidden mdDown>
+          {searchQuery.length > 0 ? <SearchList mode="mdUp" /> : null}
+        </Hidden>
+      </Grid>
     </Grid>
   );
 };

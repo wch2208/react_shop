@@ -29,7 +29,7 @@ const ProductDetail: React.FC = () => {
           </Breadcrumbs>
         </Stack>
       </Grid>
-      <Grid container>
+      <Grid container key={product.id}>
         <Grid
           item
           sx={{

@@ -25,7 +25,6 @@ const CardList = ({ category, i }: CardListProps) => {
         ml: "auto",
         mr: "auto",
         maxWidth: "1344px",
-        overflowX: "scroll",
       }}
     >
       <Grid

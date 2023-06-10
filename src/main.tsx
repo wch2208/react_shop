@@ -5,7 +5,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { RecoilRoot } from "recoil";
 import Typography from "@mui/material/Typography";
 import FetchData from "./utils/FetchData";
-import { ToggleColorMode } from "./utils/DarkMode";
+import { ToggleColorMode } from "./components/MUIcomponents/DarkMode";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>

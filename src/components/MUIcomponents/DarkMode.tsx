@@ -21,7 +21,7 @@ export function DarkModeIcon() {
         width: "20%",
         alignItems: "center",
         justifyContent: "center",
-        bgcolor: "background.default",
+        bgcolor: "background.paper",
         color: "text.primary",
         borderRadius: 1,
         p: 3,
