@@ -293,9 +293,9 @@
     "@emotion/weak-memoize" "^0.3.1"
     hoist-non-react-statics "^3.3.1"
 
-"@emotion/react@^11.7.1":
+"@emotion/react@^11.11.1":
   version "11.11.0"
-  resolved "https://registry.npmjs.org/@emotion/react/-/react-11.11.0.tgz"
+  resolved "https://registry.npmjs.org/@emotion/react/-/react-11.11.1.tgz"
   integrity sha512-ZSK3ZJsNkwfjT3JpDAWJZlrGD81Z3ytNDsxw1LKq1o+xkmO5pnWfr6gmCC8gHEFf3nSSX/09YrG67jybNPxSUw==
   dependencies:
     "@babel/runtime" "^7.18.3"
@@ -2063,7 +2063,7 @@ react-material-ui-carousel@^3.4.2:
   resolved "https://registry.npmjs.org/react-material-ui-carousel/-/react-material-ui-carousel-3.4.2.tgz"
   integrity sha512-jUbC5aBWqbbbUOOdUe3zTVf4kMiZFwKJqwhxzHgBfklaXQbSopis4iWAHvEOLcZtSIJk4JAGxKE0CmxDoxvUuw==
   dependencies:
-    "@emotion/react" "^11.7.1"
+    "@emotion/react" "^11.11.1"
     "@emotion/styled" "^11.6.0"
     "@mui/icons-material" "^5.4.1"
     "@mui/material" "^5.4.1"

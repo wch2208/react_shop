@@ -14,13 +14,13 @@ export default function SearchList({ mode }: { mode: string }) {
   const handleClick = () => {
     setProducts([]);
   };
+
   return (
     <div
       onClick={handleClick}
       style={{ position: "absolute", width: "100vw", height: "100vh", top: 0 }}
     >
       <Box
-        onBlur={handleClick}
         sx={{
           position: "absolute",
           top: mode === "mdDown" ? "97px" : "50px",
@@ -38,6 +38,7 @@ export default function SearchList({ mode }: { mode: string }) {
             {Products.map(product => (
               <ListItem disablePadding key={product.id}>
                 <Link
+                  key={product.id}
                   to={`/product/` + `${product.id}`}
                   style={{ textDecoration: "none" }}
                   onClick={handleClick}

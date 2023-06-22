@@ -5,16 +5,21 @@ import NavigateNextRoundedIcon from "@mui/icons-material/NavigateNextRounded";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Rating from "@mui/material/Rating";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ProductsState } from "../../store/atoms/ProductsAtom";
 import { useRecoilValue } from "recoil";
 import { useUpdateCart } from "../../utils/useUpdateCart";
+import { useEffect } from "react";
 
 const ProductDetail: React.FC = () => {
   const products = useRecoilValue(ProductsState);
   const productId = window.location.pathname.split("/").pop();
   const product = products.find(product => `${product.id}` === productId);
   const { addCart } = useUpdateCart();
+  const { id } = useParams();
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  useEffect(() => {}, [id]);
 
   return product ? (
     <Grid container sx={{ mt: 9, flex: 1 }}>

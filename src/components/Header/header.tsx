@@ -141,6 +141,7 @@ const Header = () => {
             style={{
               maxWidth: "40px",
               minWidth: "40px",
+              marginRight: "10px",
             }}
           >
             <Badge badgeContent={Count} color="secondary" overlap="rectangular">
