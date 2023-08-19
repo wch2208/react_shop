@@ -11,19 +11,22 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <CssBaseline />
     <RecoilRoot>
-      <React.Suspense
-        fallback={
-          <Typography variant={"h3"} sx={{ m: "auto", textAlign: "center" }}>
-            Loading...
-          </Typography>
-        }
-      >
-        <FetchData>
-          <ToggleColorMode>
+      <FetchData>
+        <ToggleColorMode>
+          <React.Suspense
+            fallback={
+              <Typography
+                variant={"h3"}
+                sx={{ mt: "1000px", textAlign: "center" }}
+              >
+                Loading...
+              </Typography>
+            }
+          >
             <App />
-          </ToggleColorMode>
-        </FetchData>
-      </React.Suspense>
+          </React.Suspense>
+        </ToggleColorMode>
+      </FetchData>
     </RecoilRoot>
   </React.StrictMode>
 );
