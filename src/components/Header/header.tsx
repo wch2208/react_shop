@@ -73,7 +73,7 @@ const Header = () => {
             color="primary"
             sx={{ fontSize: "17px", color: "text.primary" }}
           >
-            React Shop
+            CH_Shop
           </Button>
         </Link>
         <Hidden mdDown>

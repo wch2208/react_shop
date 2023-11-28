@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
     >
       <Grid item>
         <Typography color={"text.primary"} variant="h6">
-          React Shop
+          CH_Shop
         </Typography>
       </Grid>
       <Icons />
